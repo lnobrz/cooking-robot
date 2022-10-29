@@ -1,6 +1,3 @@
-import coverImage from "../assets/images/cover-image.png";
-import arrowRightIcon from "../assets/icons/arrow-right.svg";
-
 const Cover = () => {
   return (
     <div className="flex flex-row justify-between items-center bg-lightRed pt-14 pb-28">
@@ -10,11 +7,14 @@ const Cover = () => {
         </h1>
         <button className="flex flex-row justify-center items-center w-64 h-16 rounded-lg bg-brightRed mx-16 mt-9 text-white font-text mb-16">
           <p>ORDER NOW</p>
-          <img src={arrowRightIcon} alt="arrow poiting to the right" />
+          <img
+            src="/assets/icons/arrow-right.svg"
+            alt="arrow poiting to the right"
+          />
         </button>
       </div>
       <img
-        src={coverImage}
+        src="/assets/images/cover-image.png"
         alt="smiling robot serving hamburger and soda"
         className="h-92 mx-16 mb-16"
       />

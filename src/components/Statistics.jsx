@@ -1,12 +1,9 @@
-import greenElipse from "../assets/icons/green-elipse.svg";
-import yellowElipse from "../assets/icons/yellow-elipse.svg";
-
 const Statistics = () => {
   return (
     <div className="w-9/12 bg-softWhite flex flex-row justify-evenly items-center rounded-lg shadow-lg absolute -top-72 py-14 z-10 m-auto left-0 right-0">
       <div>
         <div className="flex flex-row justify-center items-center">
-          <img src={greenElipse} alt="green circle" />
+          <img src="/assets/icons/green-elipse.svg" alt="green circle" />
           <p className="font-display text-2xl text-center ml-2.5">
             COMPLETED ORDERS
           </p>
@@ -15,7 +12,7 @@ const Statistics = () => {
       </div>
       <div>
         <div className="flex flex-row justify-center items-center">
-          <img src={greenElipse} alt="green circle" />
+          <img src="/assets/icons/green-elipse.svg" alt="green circle" />
           <p className="font-display text-2xl text-center ml-2.5">
             SATISFIED CLIENTS
           </p>
@@ -24,7 +21,7 @@ const Statistics = () => {
       </div>
       <div>
         <div className="flex flex-row justify-center items-center">
-          <img src={yellowElipse} alt="yellow circle" />
+          <img src="/assets/icons/yellow-elipse.svg" alt="yellow circle" />
           <p className="font-display text-2xl text-center ml-2.5">
             AWARDS OWNED
           </p>
