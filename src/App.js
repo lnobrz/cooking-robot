@@ -1,14 +1,16 @@
 import Header from "./components/Header";
 import Cover from "./components/Cover";
 import DeliveryProcess from "./components/DeliveryProcess";
+import Menu from "./components/Menu";
 
 function App() {
   return (
-    <div>
+    <>
       <Header />
       <Cover />
       <DeliveryProcess />
-    </div>
+      <Menu />
+    </>
   );
 }
 
