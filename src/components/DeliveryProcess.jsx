@@ -1,11 +1,28 @@
-import illustration1 from "../assets/images/dp-illustration-1.png";
-import illustration2 from "../assets/images/dp-illustration-2.png";
-import illustration3 from "../assets/images/dp-illustration-3.png";
-import illustration4 from "../assets/images/cover-image.png";
-
 import Statistics from "./Statistics";
 
 const DeliveryProcess = () => {
+  const deliverySteps = [
+    {
+      name: "order in any device",
+      image: "/assets/images/dp-illustration-1.png",
+      imageDescription: "hand grabbing a phone",
+    },
+    {
+      name: "cookbot will prepair",
+      image: "/assets/images/dp-illustration-2.png",
+      imageDescription: "robot cooking",
+    },
+    {
+      name: "super-drones will deliver",
+      image: "/assets/images/dp-illustration-3.png",
+      imageDescription: "flying drone deliverying a box",
+    },
+    {
+      name: "you'll enjoy your meal",
+      image: "/assets/images/cover-image.png",
+      imageDescription: "robot serving hamburger and soda",
+    },
+  ];
   return (
     <div className="flex-col justify-center bg-softWhite relative pb-24">
       <Statistics />
@@ -13,42 +30,16 @@ const DeliveryProcess = () => {
         Delivery Process
       </h2>
       <div className="flex flex-row justify-around mt-7 mx-16">
-        <div className="flex flex-col justify-center items-center">
-          <img
-            src={illustration1}
-            alt="hand grabbing a phone"
-            className="w-80 h-80"
-          />
-          <p className="text-base font-display font-black">
-            Order in any device
-          </p>
-        </div>
-        <div className="flex flex-col justify-center items-center">
-          <img src={illustration2} alt="robot cooking" className="w-80 h-80" />
-          <p className="text-base font-display font-black">
-            Cookbot will prepair
-          </p>
-        </div>
-        <div className="flex flex-col justify-center items-center">
-          <img
-            src={illustration3}
-            alt="flying drone deliverying a box"
-            className="w-80 h-80"
-          />
-          <p className="text-base font-display font-black">
-            Super-drones will deliver
-          </p>
-        </div>
-        <div className="flex flex-col justify-center items-center">
-          <img
-            src={illustration4}
-            alt="robot serving hamburger and soda"
-            className="w-80 h-80"
-          />
-          <p className="text-base font-display font-black">
-            You will enjoy your meal
-          </p>
-        </div>
+        {deliverySteps.map((step) => (
+          <div className="flex flex-col justify-center items-center">
+            <img
+              src={step.image}
+              alt={step.imageDescription}
+              className="w-80 h-80"
+            />
+            <p className="text-base font-display font-black">{step.name}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
