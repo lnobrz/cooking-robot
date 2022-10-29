@@ -4,12 +4,12 @@
 
 @font-face {
   font-family: "BalooThambi2Bold";
-  src: url("./assets/fonts/BalooThambi2-Bold.ttf");
+  src: url("/public/assets/fonts/BalooThambi2-Bold.ttf");
 }
 
 @font-face {
   font-family: "ArialRoundedMTBold";
-  src: url("./assets/fonts/ArialRoundedMT-Bold.ttf");
+  src: url("/public/assets/fonts/ArialRoundedMT-Bold.ttf");
 }
 
 body {
