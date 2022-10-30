@@ -7,10 +7,14 @@ module.exports = {
         lightRed: "#FFEADF",
         brightRed: "#E71E1E",
         softWhite: "#FFFDFD",
+        grey: "#EFEFEF",
       },
       fontFamily: {
         display: ["BalooThambi2Bold"],
         text: ["ArialRoundedMTBold"],
+      },
+      spacing: {
+        534: "534px",
       },
     },
   },
