@@ -87,6 +87,7 @@ const MenuItems = () => {
 
   const handleClick = () => {
     const container = document.getElementById("menuItemsContainer");
+    container.classList.toggle("h-534");
     container.classList.toggle("h-full");
     setIsMenuFullyOpen(!isMenuFullyOpen);
   };
