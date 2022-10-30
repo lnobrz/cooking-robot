@@ -110,17 +110,13 @@ const MenuItems = () => {
             <p className="text-base font-display font-black text-brightRed col-start-1 col-end-3 row-start-6 row-end-6">
               ${item.price}
             </p>
-            <div className="flex flex-row justify-between px-1 py-1 items-center w-11 h-7 border border-grey shadow-lg col-start-10 col-end-11 row-start-6 row-end-6">
+            <div className="flex flex-row justify-between px-1 py-1 items-center w-11 h-7 border border-grey shadow-lg col-start-9 col-end-10 row-start-6 row-end-6">
               <button>-</button>
               <p>1</p>
               <button>+</button>
             </div>
-            <button className="bg-brightRed p-1 h-7 w-full rounded-sm col-start-12 col-end-13 row-start-6 row-end-6 flex content-center items-center">
-              <img
-                src="/assets/icons/cart-icon-2.svg"
-                alt="cart icon"
-                className="w-7 h-7"
-              />
+            <button className="bg-brightRed p-1 h-7 w-full rounded-sm col-start-11 col-end-13 row-start-6 row-end-6 flex justify-center items-center">
+              <img src="/assets/icons/cart-icon-2.svg" alt="cart icon" />
             </button>
           </div>
         ))}
