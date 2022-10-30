@@ -125,7 +125,19 @@ const MenuItems = () => {
         className="w-52 h-16 rounded-lg flex justify-center items-center bg-brightRed font-text font-black text-white mt-10 mb-16"
         onClick={handleClick}
       >
-        {isMenuFullyOpen ? "view less" : "view more"}
+        <p className="mr-1">{isMenuFullyOpen ? "view less" : "view more"}</p>
+        <img
+          src={
+            isMenuFullyOpen
+              ? "/assets/icons/arrow-up.svg"
+              : "/assets/icons/arrow-down.svg"
+          }
+          alt={
+            isMenuFullyOpen
+              ? "arrow poiting up above"
+              : "arrow poiting down bellow"
+          }
+        />
       </button>
     </div>
   );
