@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 const MenuCategories = (props) => {
   const categories = [
     {
@@ -37,18 +39,43 @@ const MenuCategories = (props) => {
     },
   ];
 
-  const handleClick = (event) => {
+  const resetBurgersContainer = () => {
+    const burgersContainer = document.getElementById("burgers");
+
+    burgersContainer.classList.remove(
+      "bg-brightRed",
+      "rounded-lg",
+      "text-white"
+    );
+  };
+
+  const addFilteredItems = (event) => {
     const filterResult = props.items.filter(
       (item) => item.category === event.target.id
     );
+
     props.filteredItemsSetter(filterResult);
   };
+
+  const handleClick = (event) => {
+    addFilteredItems(event);
+    resetBurgersContainer();
+  };
+
+  useEffect(() => {
+    const burgerCategoryContainer = document.getElementById("burgers");
+    burgerCategoryContainer.classList.add(
+      "bg-brightRed",
+      "rounded-lg",
+      "text-white"
+    );
+  }, []);
 
   return (
     <div className="flex flex-row justify-center items-center">
       {categories.map((category) => (
         <button
-          className="flex flex-col justify-center items-center p-1.5 mt-2.5 mx-1 hover:bg-brightRed hover:rounded-lg  hover:text-white focus:bg-brightRed focus:rounded-lg  focus:text-white"
+          className="flex flex-col justify-center items-center p-1.5 mt-2.5 mx-1 hover:bg-brightRed hover:rounded-lg  focus:text-white focus:bg-brightRed focus:rounded-lg  focus:text-white"
           key={category.name}
           id={category.name}
           onClick={handleClick}
