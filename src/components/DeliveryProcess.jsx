@@ -29,9 +29,9 @@ const DeliveryProcess = () => {
       <h2 className="font-display text-3xl text-center mt-48">
         Delivery Process
       </h2>
-      <div className="flex flex-row justify-around mt-7 mx-16">
+      <ul className="flex flex-row justify-around mt-7 mx-16">
         {deliverySteps.map((step) => (
-          <div
+          <li
             className="flex flex-col justify-center items-center"
             key={step.name}
           >
@@ -41,9 +41,9 @@ const DeliveryProcess = () => {
               className="w-80 h-80"
             />
             <p className="text-base font-display font-black">{step.name}</p>
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 };
