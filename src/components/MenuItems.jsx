@@ -12,12 +12,12 @@ const MenuItems = (props) => {
 
   return (
     <div className="flex flex-col justify-center items-center rounded-lg bg-softWhite mx-16 my-16">
-      <div
+      <ul
         className="w-full flex justify-center h-534 overflow-hidden	items-start flex-wrap gap-7 mt-16"
         id="menuItemsContainer"
       >
         {props.items.map((item) => (
-          <div
+          <li
             className="w-72 h-60	grid grid-cols-12 grid-rows-6 gap-x-1"
             key={item.name}
           >
@@ -40,9 +40,9 @@ const MenuItems = (props) => {
             <button className="bg-brightRed p-1 h-7 w-full rounded-sm col-start-11 col-end-13 row-start-6 row-end-6 flex justify-center items-center">
               <img src="/assets/icons/cart-icon-2.svg" alt="cart icon" />
             </button>
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
       <button
         className="w-52 h-16 rounded-lg flex justify-center items-center bg-brightRed font-text font-black text-white mt-10 mb-16"
         onClick={handleClick}
