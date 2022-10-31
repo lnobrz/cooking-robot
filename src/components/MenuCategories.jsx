@@ -37,6 +37,13 @@ const MenuCategories = (props) => {
     },
   ];
 
+  const handleClick = (event) => {
+    const filterResult = props.items.filter(
+      (item) => item.category === event.target.id
+    );
+    props.filteredItemsSetter(filterResult);
+  };
+
   return (
     <div className="flex flex-row justify-center items-center">
       {categories.map((category) => (
