@@ -72,26 +72,27 @@ const MenuCategories = (props) => {
   }, []);
 
   return (
-    <div className="flex flex-row justify-center items-center">
+    <ul className="flex flex-row justify-center items-center">
       {categories.map((category) => (
-        <button
-          className="flex flex-col justify-center items-center p-1.5 mt-2.5 mx-1 hover:bg-brightRed hover:rounded-lg  focus:text-white focus:bg-brightRed focus:rounded-lg  focus:text-white"
+        <li
+          className="flex flex-col justify-center items-center p-1.5 mt-2.5 mx-1 hover:bg-brightRed hover:rounded-lg hover:text-white focus:text-whitebg-brightRed focus:bg-brightRed focus:rounded-lg focus:text-white"
           key={category.name}
-          id={category.name}
           onClick={handleClick}
         >
-          <img
-            src={category.image}
-            alt={category.imageDescription}
-            className="h-36"
-            id={category.name}
-          />
-          <p className="text-base font-display font-black" id={category.name}>
-            {category.name.charAt(0).toUpperCase() + category.name.slice(1)}
-          </p>
-        </button>
+          <button id={category.name}>
+            <img
+              src={category.image}
+              alt={category.imageDescription}
+              className="h-36"
+              id={category.name}
+            />
+            <p className="text-base font-display font-black" id={category.name}>
+              {category.name.charAt(0).toUpperCase() + category.name.slice(1)}
+            </p>
+          </button>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };
 
