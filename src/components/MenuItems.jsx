@@ -1,88 +1,6 @@
 import { useState } from "react";
 
-const MenuItems = () => {
-  const items = [
-    [
-      {
-        name: "Spaghetti À La Moidé",
-        price: 89.99,
-        category: "pastas",
-        image: "/assets/images/pasta-1.webp",
-        imageDescription: "pasta",
-      },
-      {
-        name: "À La Tomatté",
-        price: 104.25,
-        category: "pastas",
-        image: "/assets/images/pasta-2.webp",
-        imageDescription: "pasta",
-      },
-      {
-        name: "Di Veganni",
-        price: 285.89,
-        category: "pastas",
-        image: "/assets/images/pasta-3.webp",
-        imageDescription: "pasta",
-      },
-      {
-        name: "Shoyu Showme",
-        price: 107.48,
-        category: "pastas",
-        image: "/assets/images/pasta-5.webp",
-        imageDescription: "pasta",
-      },
-      {
-        name: "Frutti Di Marí",
-        price: 37.25,
-        category: "pastas",
-        image: "/assets/images/pasta-6.webp",
-        imageDescription: "pasta",
-      },
-      {
-        name: "El Verdo",
-        price: 455.87,
-        category: "pastas",
-        image: "/assets/images/pasta-7.webp",
-        imageDescription: "pasta",
-      },
-      {
-        name: "Lavaggio",
-        price: 57.88,
-        category: "pastas",
-        image: "/assets/images/pasta-8.webp",
-        imageDescription: "pasta",
-      },
-      {
-        name: "Spratinno",
-        price: 125.87,
-        category: "pastas",
-        image: "/assets/images/pasta-9.webp",
-        imageDescription: "pasta",
-      },
-      {
-        name: "Partittian A Pa Vue",
-        price: 88.89,
-        category: "pastas",
-        image: "/assets/images/pasta-10.webp",
-        imageDescription: "pasta",
-      },
-      {
-        name: "Le Bruk",
-        price: 83.27,
-        category: "pastas",
-        image: "/assets/images/pasta-11.webp",
-        imageDescription: "pasta",
-      },
-      {
-        name: "Tittomino",
-        price: 325.89,
-        category: "pastas",
-        image: "/assets/images/pasta-12.webp",
-        imageDescription: "pasta",
-      },
-    ],
-  ];
-
+const MenuItems = (props) => {
   const [isMenuFullyOpen, setIsMenuFullyOpen] = useState(false);
 
   const handleClick = () => {
@@ -98,8 +16,11 @@ const MenuItems = () => {
         className="w-full flex justify-center h-534 overflow-hidden	items-start flex-wrap gap-7 mt-16"
         id="menuItemsContainer"
       >
-        {items[0].map((item) => (
-          <div className="w-72 h-60	grid grid-cols-12 grid-rows-6 gap-x-1">
+        {props.items.map((item) => (
+          <div
+            className="w-72 h-60	grid grid-cols-12 grid-rows-6 gap-x-1"
+            key={item.name}
+          >
             <img
               src={item.image}
               alt={item.imageDescription}

@@ -31,7 +31,10 @@ const DeliveryProcess = () => {
       </h2>
       <div className="flex flex-row justify-around mt-7 mx-16">
         {deliverySteps.map((step) => (
-          <div className="flex flex-col justify-center items-center">
+          <div
+            className="flex flex-col justify-center items-center"
+            key={step.name}
+          >
             <img
               src={step.image}
               alt={step.imageDescription}

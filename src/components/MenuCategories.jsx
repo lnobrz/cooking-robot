@@ -1,4 +1,4 @@
-const MenuCategories = () => {
+const MenuCategories = (props) => {
   const categories = [
     {
       name: "burgers",
@@ -21,7 +21,7 @@ const MenuCategories = () => {
       imageDescription: "bow with salad",
     },
     {
-      name: "deserts",
+      name: "desserts",
       image: "/assets/images/menu-illustration-5.png",
       imageDescription: "slice of cake",
     },
@@ -31,7 +31,7 @@ const MenuCategories = () => {
       imageDescription: "burger and chips",
     },
     {
-      name: "juices",
+      name: "drinks",
       image: "/assets/images/menu-illustration-7.png",
       imageDescription: "cup full of juice with a pineapple behind of it",
     },
@@ -40,18 +40,22 @@ const MenuCategories = () => {
   return (
     <div className="flex flex-row justify-center items-center">
       {categories.map((category) => (
-        <div className="flex flex-col justify-center items-center p-1.5 mt-2.5 hover:bg-brightRed hover:rounded-lg  hover:text-white">
-          <button>
-            <img
-              src={category.image}
-              alt={category.imageDescription}
-              className="h-36"
-            />
-          </button>
-          <p className="text-base font-display font-black">
+        <button
+          className="flex flex-col justify-center items-center p-1.5 mt-2.5 mx-1 hover:bg-brightRed hover:rounded-lg  hover:text-white focus:bg-brightRed focus:rounded-lg  focus:text-white"
+          key={category.name}
+          id={category.name}
+          onClick={handleClick}
+        >
+          <img
+            src={category.image}
+            alt={category.imageDescription}
+            className="h-36"
+            id={category.name}
+          />
+          <p className="text-base font-display font-black" id={category.name}>
             {category.name.charAt(0).toUpperCase() + category.name.slice(1)}
           </p>
-        </div>
+        </button>
       ))}
     </div>
   );
