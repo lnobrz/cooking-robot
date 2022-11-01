@@ -1,5 +1,5 @@
 import { useState } from "react";
-import MenuItem from "../MenuItem";
+import MenuItem from "./MenuItem";
 
 const MenuItems = (props) => {
   const [isMenuFullyOpen, setIsMenuFullyOpen] = useState(false);
