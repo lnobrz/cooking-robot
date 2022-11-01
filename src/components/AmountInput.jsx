@@ -18,12 +18,12 @@ const AmountInput = (props) => {
           -
         </button>
         <input
-          type="number"
+          type="text"
           name="amount"
           placeholder="0"
           value={props.amount}
           onChange={handleInputChange}
-          className="w-7 text-center"
+          className="w-7 text-center self-center"
         />
         <button className="mx-1" onClick={handlePlusClick}>
           +
