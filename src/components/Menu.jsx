@@ -1,6 +1,7 @@
 import { useState } from "react";
 import MenuCategories from "./MenuCategories";
 import MenuItems from "./MenuItems";
+import { BigTitle } from "./ui/Titles";
 
 const Menu = () => {
   const items = [
@@ -438,7 +439,7 @@ const Menu = () => {
 
   return (
     <div className="flex flex-col justify-center items-center bg-lightRed pt-14 pb-28">
-      <h2 className="font-display text-3xl text-center mt-12">Menu</h2>
+      <BigTitle title="Menu" marginTop="mt-12" />
       <MenuCategories items={items} filteredItemsSetter={setFilteredItems} />
       <MenuItems items={filteredItems} />
     </div>
