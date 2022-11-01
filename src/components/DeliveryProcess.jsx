@@ -1,4 +1,5 @@
 import Statistics from "./Statistics";
+import { BigTitle, SmallTitle } from "./ui/Titles";
 
 const DeliveryProcess = () => {
   const deliverySteps = [
@@ -26,9 +27,7 @@ const DeliveryProcess = () => {
   return (
     <div className="flex-col justify-center bg-softWhite relative pb-24">
       <Statistics />
-      <h2 className="font-display text-3xl text-center mt-48">
-        Delivery Process
-      </h2>
+      <BigTitle title="Delivery Process" additionalClasses="mt-48" />
       <ul className="flex flex-row justify-around mt-7 mx-16">
         {deliverySteps.map((step) => (
           <li
@@ -40,7 +39,7 @@ const DeliveryProcess = () => {
               alt={step.imageDescription}
               className="w-80 h-80"
             />
-            <p className="text-base font-display font-black">{step.name}</p>
+            <SmallTitle title={step.name} />
           </li>
         ))}
       </ul>
