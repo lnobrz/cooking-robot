@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { SmallTitle } from "./ui/Titles";
 
 const MenuCategories = (props) => {
   const categories = [
@@ -86,9 +87,12 @@ const MenuCategories = (props) => {
               className="h-36"
               id={category.name}
             />
-            <p className="text-base font-display font-black" id={category.name}>
-              {category.name.charAt(0).toUpperCase() + category.name.slice(1)}
-            </p>
+            <SmallTitle
+              title={
+                category.name.charAt(0).toUpperCase() + category.name.slice(1)
+              }
+              id={category.name}
+            />
           </button>
         </li>
       ))}
