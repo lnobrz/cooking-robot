@@ -4,11 +4,11 @@ const AmountInput = (props) => {
   };
 
   const handleMinusClick = () => {
-    props.amountSetter(props.amount - 1);
+    props.amountSetter(+props.amount - 1);
   };
 
   const handlePlusClick = () => {
-    props.amountSetter(props.amount + 1);
+    props.amountSetter(+props.amount + 1);
   };
 
   return (
