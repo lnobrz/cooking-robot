@@ -1,25 +1,27 @@
 import { SmallTitle } from "./ui/Titles";
 import AmountInput from "./AmountInput";
-import { useState, useContext } from "react";
-import { CartContext } from "../storage/cart";
+import { useContext, useState } from "react";
+import { GlobalContext } from "../storage/global";
 
 const MenuItem = (props) => {
-  const globalCart = useContext(CartContext);
-  const [amount, setAmount] = useState("");
+  const globalContext = useContext(GlobalContext);
+  const [itemAmount, setItemAmount] = useState(0);
+  const [resetAmount, setResetAmount] = useState(false);
 
-  const handleCartBtnClick = (itemName, itemPrice) => {
-    amount > 0 &&
-      globalCart.setCard([
-        ...globalCart.cart,
+  const handleCartBtnClick = (itemId, itemName, itemPrice) => {
+    if (itemAmount > 0) {
+      globalContext.setCart([
+        ...globalContext.cart,
         {
+          id: itemId,
           item: itemName,
           price: itemPrice,
-          amount: amount,
+          amount: itemAmount,
         },
       ]);
+      setResetAmount(true);
+    }
   };
-
-  console.log(globalCart.cart);
 
   return (
     <li
@@ -40,10 +42,17 @@ const MenuItem = (props) => {
         title={props.price}
         additionalClasses="text-brightRed col-start-1 col-end-3 row-start-6 row-end-6"
       />
-      <AmountInput amount={amount} amountSetter={setAmount} />
+      <AmountInput
+        reset={resetAmount}
+        resetSetter={setResetAmount}
+        amountSetter={setItemAmount}
+        additionalClasses="border border-grey"
+      />
       <button
         className="bg-brightRed p-1 h-7 w-full rounded-sm col-start-11 col-end-13 row-start-6 row-end-6 flex justify-center items-center"
-        onClick={(event) => handleCartBtnClick(props.name, props.price)}
+        onClick={(event) =>
+          handleCartBtnClick(props.id, props.name, props.price)
+        }
       >
         <img src="/assets/icons/cart-icon-2.svg" alt="cart icon" />
       </button>
