@@ -15,9 +15,7 @@ const AmountInput = (props) => {
 
   const updateCartAmount = (eventValue) => {
     newArr[props.index] = {
-      id: props.id,
-      item: props.name,
-      price: props.price,
+      ...newArr[props.index],
       amount: eventValue,
     };
     globalContext.setCart(newArr);
@@ -60,11 +58,7 @@ const AmountInput = (props) => {
         </button>
         <input
           ref={amount}
-          value={
-            props.isCart
-              ? globalContext.cart[props.index].amount
-              : amount.current.value
-          }
+          value={props.isCart && globalContext.cart[props.index].amount}
           type="text"
           name="amount"
           placeholder="0"
