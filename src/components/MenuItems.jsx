@@ -19,6 +19,7 @@ const MenuItems = (props) => {
       >
         {props.items.map((item) => (
           <MenuItem
+            id={item.id}
             name={item.name}
             image={item.image}
             imageDescription={item.imageDescription}
