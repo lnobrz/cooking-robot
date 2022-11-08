@@ -6,6 +6,7 @@ import { BigTitle } from "./ui/Titles";
 const Menu = () => {
   const items = [
     {
+      id: 1,
       name: "BT Burger",
       price: 89.99,
       category: "burgers",
@@ -13,6 +14,7 @@ const Menu = () => {
       imageDescription: "burger",
     },
     {
+      id: 2,
       name: "Devil Side Burger",
       price: 35.25,
       category: "burgers",
@@ -20,6 +22,7 @@ const Menu = () => {
       imageDescription: "burger",
     },
     {
+      id: 3,
       name: "Bad Suns Burger",
       price: 49.99,
       category: "burgers",
@@ -27,6 +30,7 @@ const Menu = () => {
       imageDescription: "burger",
     },
     {
+      id: 4,
       name: "Heartbreaker Burger",
       price: 25.45,
       category: "burgers",
@@ -34,6 +38,7 @@ const Menu = () => {
       imageDescription: "burger",
     },
     {
+      id: 5,
       name: "Toma Burger",
       price: 81.59,
       category: "burgers",
@@ -41,6 +46,7 @@ const Menu = () => {
       imageDescription: "burger",
     },
     {
+      id: 6,
       name: "Mirage Burger",
       price: 104.27,
       category: "burgers",
@@ -48,6 +54,7 @@ const Menu = () => {
       imageDescription: "burger",
     },
     {
+      id: 7,
       name: "Burger of Eden",
       price: 19.99,
       category: "burgers",
@@ -55,6 +62,7 @@ const Menu = () => {
       imageDescription: "burger",
     },
     {
+      id: 8,
       name: "Robot Burger",
       price: 150.29,
       category: "burgers",
@@ -62,6 +70,7 @@ const Menu = () => {
       imageDescription: "burger",
     },
     {
+      id: 9,
       name: "Ivy Burger",
       price: 89.55,
       category: "burgers",
@@ -69,6 +78,7 @@ const Menu = () => {
       imageDescription: "burger",
     },
     {
+      id: 10,
       name: "Pity Pizza",
       price: 57.25,
       category: "pizzas",
@@ -76,6 +86,7 @@ const Menu = () => {
       imageDescription: "pizza",
     },
     {
+      id: 11,
       name: "Years Pizza",
       price: 98.25,
       category: "pizzas",
@@ -83,6 +94,7 @@ const Menu = () => {
       imageDescription: "pizza",
     },
     {
+      id: 12,
       name: "Pompeiizza",
       price: 45.95,
       category: "pizzas",
@@ -90,6 +102,7 @@ const Menu = () => {
       imageDescription: "pizza",
     },
     {
+      id: 13,
       name: "Nightmare Pizza",
       price: 102.47,
       category: "pizzas",
@@ -97,6 +110,7 @@ const Menu = () => {
       imageDescription: "pizza",
     },
     {
+      id: 14,
       name: "Cardi Bizza",
       price: 29.99,
       category: "pizzas",
@@ -104,6 +118,7 @@ const Menu = () => {
       imageDescription: "pizza",
     },
     {
+      id: 15,
       name: "Midnights Pizza",
       price: 97.97,
       category: "pizzas",
@@ -111,6 +126,7 @@ const Menu = () => {
       imageDescription: "pizza",
     },
     {
+      id: 16,
       name: "Icy Pizza",
       price: 57.25,
       category: "pizzas",
@@ -118,6 +134,7 @@ const Menu = () => {
       imageDescription: "pizza",
     },
     {
+      id: 17,
       name: "Natalie Pizza",
       price: 55.99,
       category: "pizzas",
@@ -125,6 +142,7 @@ const Menu = () => {
       imageDescription: "pizza",
     },
     {
+      id: 18,
       name: "Pizza Del Rey",
       price: 59.87,
       category: "pizzas",
@@ -132,6 +150,7 @@ const Menu = () => {
       imageDescription: "pizza",
     },
     {
+      id: 19,
       name: "Spaghetti À La Moidé",
       price: 89.99,
       category: "pastas",
@@ -139,6 +158,7 @@ const Menu = () => {
       imageDescription: "pasta",
     },
     {
+      id: 20,
       name: "À La Tomatté",
       price: 104.25,
       category: "pastas",
@@ -146,6 +166,7 @@ const Menu = () => {
       imageDescription: "pasta",
     },
     {
+      id: 21,
       name: "Di Veganni",
       price: 285.89,
       category: "pastas",
@@ -153,6 +174,7 @@ const Menu = () => {
       imageDescription: "pasta",
     },
     {
+      id: 22,
       name: "Shoyu Showme",
       price: 107.48,
       category: "pastas",
@@ -160,6 +182,7 @@ const Menu = () => {
       imageDescription: "pasta",
     },
     {
+      id: 23,
       name: "Frutti Di Marí",
       price: 37.25,
       category: "pastas",
@@ -167,6 +190,7 @@ const Menu = () => {
       imageDescription: "pasta",
     },
     {
+      id: 24,
       name: "El Verdo",
       price: 455.87,
       category: "pastas",
@@ -174,6 +198,7 @@ const Menu = () => {
       imageDescription: "pasta",
     },
     {
+      id: 25,
       name: "Lavaggio",
       price: 57.88,
       category: "pastas",
@@ -181,6 +206,7 @@ const Menu = () => {
       imageDescription: "pasta",
     },
     {
+      id: 26,
       name: "Spratinno",
       price: 125.87,
       category: "pastas",
@@ -188,6 +214,7 @@ const Menu = () => {
       imageDescription: "pasta",
     },
     {
+      id: 27,
       name: "Partittian A Pa Vue",
       price: 88.89,
       category: "pastas",
@@ -195,6 +222,7 @@ const Menu = () => {
       imageDescription: "pasta",
     },
     {
+      id: 28,
       name: "Le Bruk",
       price: 83.27,
       category: "pastas",
@@ -202,6 +230,7 @@ const Menu = () => {
       imageDescription: "pasta",
     },
     {
+      id: 29,
       name: "Tittomino",
       price: 325.89,
       category: "pastas",
@@ -209,6 +238,7 @@ const Menu = () => {
       imageDescription: "pasta",
     },
     {
+      id: 30,
       name: "Envolvergannitto",
       price: 102.47,
       category: "vegan",
@@ -216,6 +246,7 @@ const Menu = () => {
       imageDescription: "vegan food",
     },
     {
+      id: 31,
       name: "Baby Green Shades",
       price: 29.99,
       category: "vegan",
@@ -223,6 +254,7 @@ const Menu = () => {
       imageDescription: "vegan food",
     },
     {
+      id: 32,
       name: "Green Light",
       price: 97.97,
       category: "vegan",
@@ -230,6 +262,7 @@ const Menu = () => {
       imageDescription: "vegan food",
     },
     {
+      id: 33,
       name: "Rich Vegan Girls",
       price: 285.26,
       category: "vegan",
@@ -237,6 +270,7 @@ const Menu = () => {
       imageDescription: "vegan food",
     },
     {
+      id: 34,
       name: "Rango",
       price: 123.45,
       category: "vegan",
@@ -244,6 +278,7 @@ const Menu = () => {
       imageDescription: "vegan food",
     },
     {
+      id: 35,
       name: "Greenssoms",
       price: 77.97,
       category: "vegan",
@@ -251,6 +286,7 @@ const Menu = () => {
       imageDescription: "vegan food",
     },
     {
+      id: 36,
       name: "Banana Splittus",
       price: 27.85,
       category: "desserts",
@@ -258,6 +294,7 @@ const Menu = () => {
       imageDescription: "dessert",
     },
     {
+      id: 37,
       name: "Chocolatte Globe",
       price: 150.97,
       category: "desserts",
@@ -265,6 +302,7 @@ const Menu = () => {
       imageDescription: "dessert",
     },
     {
+      id: 38,
       name: "Pie Nettone",
       price: 327.88,
       category: "desserts",
@@ -272,6 +310,7 @@ const Menu = () => {
       imageDescription: "dessert",
     },
     {
+      id: 39,
       name: "Little Fruitty Pie",
       price: 77.97,
       category: "desserts",
@@ -279,6 +318,7 @@ const Menu = () => {
       imageDescription: "dessert",
     },
     {
+      id: 40,
       name: "Square Frutitty Cake",
       price: 77.97,
       category: "desserts",
@@ -286,6 +326,7 @@ const Menu = () => {
       imageDescription: "dessert",
     },
     {
+      id: 41,
       name: "Sweet Empadda",
       price: 23.97,
       category: "desserts",
@@ -293,6 +334,7 @@ const Menu = () => {
       imageDescription: "dessert",
     },
     {
+      id: 42,
       name: "Flower Cupcake",
       price: 77.97,
       category: "desserts",
@@ -300,6 +342,7 @@ const Menu = () => {
       imageDescription: "dessert",
     },
     {
+      id: 43,
       name: "Caramel Pie",
       price: 89.97,
       category: "desserts",
@@ -307,6 +350,7 @@ const Menu = () => {
       imageDescription: "dessert",
     },
     {
+      id: 44,
       name: "Combo 1",
       price: 134.98,
       category: "combos",
@@ -314,6 +358,7 @@ const Menu = () => {
       imageDescription: "combo with burger and fries",
     },
     {
+      id: 45,
       name: "Combo 2",
       price: 150.58,
       category: "combos",
@@ -321,6 +366,7 @@ const Menu = () => {
       imageDescription: "combo with burger and fries",
     },
     {
+      id: 46,
       name: "Combo 3",
       price: 141.98,
       category: "combos",
@@ -328,6 +374,7 @@ const Menu = () => {
       imageDescription: "combo with burger and fries",
     },
     {
+      id: 47,
       name: "Combo 4",
       price: 108.98,
       category: "combos",
@@ -335,6 +382,7 @@ const Menu = () => {
       imageDescription: "combo with burger and fries",
     },
     {
+      id: 48,
       name: "Passion Fruit Juice",
       price: 25.98,
       category: "drinks",
@@ -342,6 +390,7 @@ const Menu = () => {
       imageDescription: "passion fruit juice",
     },
     {
+      id: 49,
       name: "Orange Juice",
       price: 30.0,
       category: "drinks",
@@ -349,6 +398,7 @@ const Menu = () => {
       imageDescription: "orange juice",
     },
     {
+      id: 50,
       name: "Strawberry Juice",
       price: 49.99,
       category: "drinks",
@@ -356,6 +406,7 @@ const Menu = () => {
       imageDescription: "strawberry juice",
     },
     {
+      id: 51,
       name: "Lemon Juice",
       price: 15.99,
       category: "drinks",
@@ -363,6 +414,7 @@ const Menu = () => {
       imageDescription: "lemon juice",
     },
     {
+      id: 52,
       name: "Fruit Mix Juice",
       price: 60.99,
       category: "drink",
@@ -373,6 +425,7 @@ const Menu = () => {
 
   const [filteredItems, setFilteredItems] = useState([
     {
+      id: 1,
       name: "BT Burger",
       price: 89.99,
       category: "burgers",
@@ -380,6 +433,7 @@ const Menu = () => {
       imageDescription: "burger",
     },
     {
+      id: 2,
       name: "Devil Side Burger",
       price: 35.25,
       category: "burgers",
@@ -387,6 +441,7 @@ const Menu = () => {
       imageDescription: "burger",
     },
     {
+      id: 3,
       name: "Bad Suns Burger",
       price: 49.99,
       category: "burgers",
@@ -394,6 +449,7 @@ const Menu = () => {
       imageDescription: "burger",
     },
     {
+      id: 4,
       name: "Heartbreaker Burger",
       price: 25.45,
       category: "burgers",
@@ -401,6 +457,7 @@ const Menu = () => {
       imageDescription: "burger",
     },
     {
+      id: 5,
       name: "Toma Burger",
       price: 81.59,
       category: "burgers",
@@ -408,6 +465,7 @@ const Menu = () => {
       imageDescription: "burger",
     },
     {
+      id: 6,
       name: "Mirage Burger",
       price: 104.27,
       category: "burgers",
@@ -415,6 +473,7 @@ const Menu = () => {
       imageDescription: "burger",
     },
     {
+      id: 7,
       name: "Burger of Eden",
       price: 19.99,
       category: "burgers",
@@ -422,6 +481,7 @@ const Menu = () => {
       imageDescription: "burger",
     },
     {
+      id: 8,
       name: "Robot Burger",
       price: 150.29,
       category: "burgers",
@@ -429,6 +489,7 @@ const Menu = () => {
       imageDescription: "burger",
     },
     {
+      id: 9,
       name: "Ivy Burger",
       price: 89.55,
       category: "burgers",
