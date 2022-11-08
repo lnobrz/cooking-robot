@@ -5,11 +5,12 @@ import { GlobalContext } from "../storage/global";
 
 const MenuItem = (props) => {
   const globalContext = useContext(GlobalContext);
+  const idArray = globalContext.cart.map((item) => item.id);
   const [itemAmount, setItemAmount] = useState(0);
   const [resetAmount, setResetAmount] = useState(false);
 
   const handleCartBtnClick = (itemId, itemName, itemPrice) => {
-    if (itemAmount > 0) {
+    if (itemAmount > 0 && !idArray.includes(itemId)) {
       globalContext.setCart([
         ...globalContext.cart,
         {
@@ -19,6 +20,16 @@ const MenuItem = (props) => {
           amount: itemAmount,
         },
       ]);
+      setResetAmount(true);
+    } else if (itemAmount > 0 && idArray.includes(itemId)) {
+      const filteredArray = globalContext.cart.filter(
+        (item) => item.id !== itemId
+      );
+      const existentItem = globalContext.cart.filter(
+        (item) => item.id === itemId
+      );
+      existentItem[0].amount = existentItem[0].amount + itemAmount;
+      globalContext.setCart([...filteredArray, ...existentItem]);
       setResetAmount(true);
     }
   };
