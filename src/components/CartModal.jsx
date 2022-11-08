@@ -1,11 +1,12 @@
 import ItemInfo from "./ItemInfo";
 import TotalAmount from "./TotalAmount";
 import Button from "./ui/Button";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { GlobalContext } from "../storage/global";
 import { BigTitle } from "./ui/Titles";
 
 const CartModal = (props) => {
+  const [isOrderFinished, setIsOrderFinished] = useState(false);
   const globalContext = useContext(GlobalContext);
   const message = JSON.stringify(globalContext.cart);
   const formatedMessage = message
@@ -24,6 +25,11 @@ const CartModal = (props) => {
     window.open(
       `https://api.whatsapp.com/send?phone=5585988594439&text=${formatedMessage}`
     );
+    setIsOrderFinished(true);
+    globalContext.setCart([]);
+    setTimeout(() => {
+      setIsOrderFinished(false);
+    }, 3000);
   };
 
   return (
@@ -39,6 +45,7 @@ const CartModal = (props) => {
           {globalContext.cart.length > 0 ? (
             globalContext.cart.map((cartItem, index) => (
               <ItemInfo
+                key={cartItem.id}
                 additionalClasses="col-span-full"
                 id={cartItem.id}
                 name={cartItem.item}
@@ -50,12 +57,20 @@ const CartModal = (props) => {
           ) : (
             <>
               <BigTitle
-                title="Empty cart"
-                additionalClasses="col-span-full row-start-1 text-brightRed"
+                title={isOrderFinished ? "Order finished!" : "Empty cart"}
+                additionalClasses={`col-span-full row-start-1 ${
+                  isOrderFinished ? "text-brightGreen" : "text-brightRed"
+                }`}
               />
               <img
-                src="/assets/icons/empty-cart-icon.svg"
-                alt="empty cart"
+                src={
+                  isOrderFinished
+                    ? "/assets/images/order-finished.png"
+                    : "/assets/icons/empty-cart-icon.svg"
+                }
+                alt={
+                  isOrderFinished ? "cart with a checked symbol" : "empty cart"
+                }
                 className="col-span-full row-start-2 w-36 h-36 self-center my-auto "
               />
             </>
