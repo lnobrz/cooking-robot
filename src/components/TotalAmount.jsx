@@ -8,23 +8,18 @@ const TotalAmount = (props) => {
   let finalPrice;
   let roundedPrice;
 
-  const calculateFinalPrice = () => {
-    pricesArray = globalContext.cart.map((item) => item.price * item.amount);
-    finalPrice = pricesArray.reduce(function (accumulator, curValue) {
-      return +accumulator + +curValue;
-    });
-  };
-
-  calculateFinalPrice();
+  pricesArray = globalContext.cart.map((item) => item.price * item.amount);
+  finalPrice = pricesArray.reduce(function (accumulator, curValue) {
+    return +accumulator + +curValue;
+  });
   roundedPrice = +finalPrice.toFixed([2]);
-  globalContext.setFinalPrice(roundedPrice);
 
   return (
     <div
       className={`${props.additionalClasses} flex flex-row justify-between items-center`}
     >
       <BigTitle title="Total Amount: " />
-      <BigTitle title={`$${globalContext.finalPrice}`} />
+      <BigTitle title={`$${roundedPrice}`} />
     </div>
   );
 };
