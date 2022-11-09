@@ -1,29 +1,34 @@
+import { useMemo } from "react";
 import Statistics from "./Statistics";
 import { BigTitle, SmallTitle } from "./ui/Titles";
 
 const DeliveryProcess = () => {
-  const deliverySteps = [
-    {
-      name: "order in any device",
-      image: "/assets/images/dp-illustration-1.png",
-      imageDescription: "hand grabbing a phone",
-    },
-    {
-      name: "cookbot will prepair",
-      image: "/assets/images/dp-illustration-2.png",
-      imageDescription: "robot cooking",
-    },
-    {
-      name: "super-drones will deliver",
-      image: "/assets/images/dp-illustration-3.png",
-      imageDescription: "flying drone deliverying a box",
-    },
-    {
-      name: "you'll enjoy your meal",
-      image: "/assets/images/cover-image.png",
-      imageDescription: "robot serving hamburger and soda",
-    },
-  ];
+  const deliverySteps = useMemo(
+    () => [
+      {
+        name: "order in any device",
+        image: "/assets/images/dp-illustration-1.png",
+        imageDescription: "hand grabbing a phone",
+      },
+      {
+        name: "cookbot will prepair",
+        image: "/assets/images/dp-illustration-2.png",
+        imageDescription: "robot cooking",
+      },
+      {
+        name: "super-drones will deliver",
+        image: "/assets/images/dp-illustration-3.png",
+        imageDescription: "flying drone deliverying a box",
+      },
+      {
+        name: "you'll enjoy your meal",
+        image: "/assets/images/cover-image.png",
+        imageDescription: "robot serving hamburger and soda",
+      },
+    ],
+    []
+  );
+
   return (
     <div className="flex-col justify-center bg-softWhite relative pb-24">
       <Statistics />

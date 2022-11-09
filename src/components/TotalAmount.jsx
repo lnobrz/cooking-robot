@@ -1,6 +1,6 @@
 import { BigTitle } from "./ui/Titles";
 import { GlobalContext } from "../storage/global";
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 
 const TotalAmount = (props) => {
   const globalContext = useContext(GlobalContext);
@@ -8,7 +8,10 @@ const TotalAmount = (props) => {
   let finalPrice;
   let roundedPrice;
 
-  pricesArray = globalContext.cart.map((item) => item.price * item.amount);
+  pricesArray = useMemo(
+    () => globalContext.cart.map((item) => item.price * item.amount),
+    [globalContext.cart]
+  );
   finalPrice = pricesArray.reduce(function (accumulator, curValue) {
     return +accumulator + +curValue;
   });
