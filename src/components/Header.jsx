@@ -7,7 +7,7 @@ const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleCartClick = () => {
-    setIsModalOpen(!isModalOpen);
+    setIsModalOpen((previousValue) => !previousValue);
   };
 
   return (

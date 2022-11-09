@@ -8,7 +8,7 @@ const MenuItems = (props) => {
     const container = document.getElementById("menuItemsContainer");
     container.classList.toggle("h-534");
     container.classList.toggle("h-full");
-    setIsMenuFullyOpen(!isMenuFullyOpen);
+    setIsMenuFullyOpen((previousValue) => !previousValue);
   };
 
   return (
