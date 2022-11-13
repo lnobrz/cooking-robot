@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import { SmallTitle } from "./ui/Titles";
 
 const MenuCategories = (props) => {
@@ -69,15 +69,6 @@ const MenuCategories = (props) => {
     addFilteredItems(event);
     resetBurgersContainer();
   };
-
-  useEffect(() => {
-    const burgerCategoryContainer = document.getElementById("burgers");
-    burgerCategoryContainer.classList.add(
-      "bg-brightRed",
-      "rounded-lg",
-      "text-white"
-    );
-  }, []);
 
   return (
     <ul className="flex flex-row justify-center items-center">
