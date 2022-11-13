@@ -3,18 +3,17 @@ import MenuItem from "./MenuItem";
 
 const MenuItems = (props) => {
   const [isMenuFullyOpen, setIsMenuFullyOpen] = useState(false);
+  const container = document.getElementById("menuItemsContainer");
 
   const handleClick = () => {
-    const container = document.getElementById("menuItemsContainer");
-    container.classList.toggle("h-534");
-    container.classList.toggle("h-full");
     setIsMenuFullyOpen((previousValue) => !previousValue);
+    container.classList.toggle("max-h-534");
   };
 
   return (
     <div className="flex flex-col justify-center items-center rounded-lg bg-softWhite mx-16 my-16">
       <ul
-        className="w-full flex justify-center h-534 overflow-hidden	items-start flex-wrap gap-7 mt-16"
+        className="w-full flex justify-center max-h-534 overflow-hidden	items-start flex-wrap gap-7 mx-12 mt-16"
         id="menuItemsContainer"
       >
         {props.items.map((item) => (
