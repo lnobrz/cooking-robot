@@ -17,14 +17,7 @@ const MenuItems = (props) => {
         id="menuItemsContainer"
       >
         {props.items.map((item) => (
-          <MenuItem
-            key={item.id}
-            id={item.id}
-            name={item.name}
-            image={item.image}
-            imageDescription={item.imageDescription}
-            price={item.price}
-          />
+          <MenuItem item={item} />
         ))}
       </ul>
       <button
