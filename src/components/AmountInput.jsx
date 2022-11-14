@@ -64,7 +64,7 @@ const AmountInput = (props) => {
         </button>
         <input
           ref={amount}
-          value={props.isCart ? globalContext.cart[props.index].amount : ""}
+          value={props.isCart && globalContext.cart[props.index].amount}
           type="text"
           name="amount"
           placeholder="0"
