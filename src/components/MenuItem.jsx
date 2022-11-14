@@ -42,6 +42,10 @@ const MenuItem = (props) => {
     }
   };
 
+  useEffect(() => {
+    localStorage.setItem("userCart", JSON.stringify(globalContext.cart));
+  }, [globalContext.cart]);
+
   return (
     <li
       className="w-72 h-60	grid grid-cols-12 grid-rows-6 gap-x-1"
