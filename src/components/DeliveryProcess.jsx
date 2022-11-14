@@ -1,40 +1,30 @@
-import { useMemo } from "react";
+import { useEffect, useState, useCallback } from "react";
 import Statistics from "./Statistics";
 import { BigTitle, SmallTitle } from "./ui/Titles";
 
 const DeliveryProcess = () => {
-  const deliverySteps = useMemo(
-    () => [
-      {
-        name: "order in any device",
-        image: "/assets/images/dp-illustration-1.png",
-        imageDescription: "hand grabbing a phone",
-      },
-      {
-        name: "cookbot will prepair",
-        image: "/assets/images/dp-illustration-2.png",
-        imageDescription: "robot cooking",
-      },
-      {
-        name: "super-drones will deliver",
-        image: "/assets/images/dp-illustration-3.png",
-        imageDescription: "flying drone deliverying a box",
-      },
-      {
-        name: "you'll enjoy your meal",
-        image: "/assets/images/cover-image.png",
-        imageDescription: "robot serving hamburger and soda",
-      },
-    ],
-    []
-  );
+  const [steps, setSteps] = useState([]);
+
+  const fetchSteps = useCallback(async () => {
+    const response = await fetch(
+      "https://cooking-robot-f1d46-default-rtdb.firebaseio.com/deliveryProcess.json"
+    );
+    const data = await response.json();
+    for (const key in data) {
+      setSteps(data[key]);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchSteps();
+  }, [fetchSteps]);
 
   return (
     <div className="flex-col justify-center bg-softWhite relative pb-24">
       <Statistics />
       <BigTitle title="Delivery Process" additionalClasses="mt-48" />
       <ul className="flex flex-row justify-around mt-7 mx-16">
-        {deliverySteps.map((step) => (
+        {steps.map((step) => (
           <li
             className="flex flex-col justify-center items-center"
             key={step.name}
