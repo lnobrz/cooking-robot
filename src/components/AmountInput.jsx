@@ -3,7 +3,7 @@ import { GlobalContext } from "../storage/global";
 
 const AmountInput = (props) => {
   const globalContext = useContext(GlobalContext);
-  const newArr = [...globalContext.cart];
+  let newArr = [...globalContext.cart];
   const amount = useRef(0);
 
   useEffect(() => {
@@ -15,11 +15,16 @@ const AmountInput = (props) => {
   }, [props, globalContext.cart]);
 
   const updateCartAmount = (eventValue) => {
-    newArr[props.index] = {
-      ...newArr[props.index],
-      amount: eventValue,
-    };
-    globalContext.setCart(newArr);
+    if (eventValue > 0) {
+      newArr[props.index] = {
+        ...newArr[props.index],
+        amount: eventValue,
+      };
+      globalContext.setCart(newArr);
+    } else {
+      newArr = newArr.filter((item, index) => index !== props.index);
+      globalContext.setCart(newArr);
+    }
   };
 
   const handleInputChange = (event) => {
