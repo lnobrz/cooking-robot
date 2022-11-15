@@ -3,7 +3,7 @@ import { GlobalContext } from "../storage/global";
 
 const AmountInput = (props) => {
   const globalContext = useContext(GlobalContext);
-  let newArr = [...globalContext.cart];
+  let updatedCart = [...globalContext.cart];
   const amount = useRef(0);
 
   const resetAmount = useCallback(() => {
@@ -23,16 +23,16 @@ const AmountInput = (props) => {
   }, [props.reset, resetAmount, updateLocalStorageCart]);
 
   const updateCartAmount = (eventValue) => {
-    newArr[props.index] = {
-      ...newArr[props.index],
+    updatedCart[props.index] = {
+      ...updatedCart[props.index],
       amount: eventValue,
     };
-    globalContext.setCart(newArr);
+    globalContext.setCart(updatedCart);
   };
 
   const excludeCartItem = () => {
-    newArr = newArr.filter((item, index) => index !== props.index);
-    globalContext.setCart(newArr);
+    updatedCart = updatedCart.filter((item, index) => index !== props.index);
+    globalContext.setCart(updatedCart);
   };
 
   const handleCartAmountChange = (eventValue) => {
@@ -60,7 +60,7 @@ const AmountInput = (props) => {
 
   const handleMinusClick = () => {
     if (props.isCart) {
-      handleCartAmountChange(newArr[props.index].amount - 1);
+      handleCartAmountChange(updatedCart[props.index].amount - 1);
     } else {
       decreaseMenuAmount();
     }
@@ -76,7 +76,7 @@ const AmountInput = (props) => {
 
   const handlePlusClick = () => {
     if (props.isCart) {
-      handleCartAmountChange(newArr[props.index].amount + 1);
+      handleCartAmountChange(updatedCart[props.index].amount + 1);
     } else {
       increaseMenuAmount();
     }
