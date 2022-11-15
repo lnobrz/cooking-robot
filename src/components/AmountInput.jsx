@@ -1,4 +1,4 @@
-import { useContext, useRef, useEffect } from "react";
+import { useContext, useRef, useEffect, useCallback } from "react";
 import { GlobalContext } from "../storage/global";
 
 const AmountInput = (props) => {
@@ -6,51 +6,79 @@ const AmountInput = (props) => {
   let newArr = [...globalContext.cart];
   const amount = useRef(0);
 
+  const resetAmount = useCallback(() => {
+    amount.current.value = 0;
+    props.resetSetter(false);
+  }, [props]);
+
+  const updateLocalStorageCart = useCallback(() => {
+    localStorage.setItem("userCart", JSON.stringify(globalContext.cart));
+  }, [globalContext.cart]);
+
   useEffect(() => {
     if (props.reset === true) {
-      amount.current.value = 0;
-      props.resetSetter(false);
+      resetAmount();
     }
-    localStorage.setItem("userCart", JSON.stringify(globalContext.cart));
-  }, [props, globalContext.cart]);
+    updateLocalStorageCart();
+  }, [props.reset, resetAmount, updateLocalStorageCart]);
 
   const updateCartAmount = (eventValue) => {
+    newArr[props.index] = {
+      ...newArr[props.index],
+      amount: eventValue,
+    };
+    globalContext.setCart(newArr);
+  };
+
+  const excludeCartItem = () => {
+    newArr = newArr.filter((item, index) => index !== props.index);
+    globalContext.setCart(newArr);
+  };
+
+  const handleCartAmountChange = (eventValue) => {
     if (eventValue > 0) {
-      newArr[props.index] = {
-        ...newArr[props.index],
-        amount: eventValue,
-      };
-      globalContext.setCart(newArr);
+      updateCartAmount(eventValue);
     } else {
-      newArr = newArr.filter((item, index) => index !== props.index);
-      globalContext.setCart(newArr);
+      excludeCartItem();
+    }
+  };
+
+  const decreaseMenuAmount = () => {
+    amount.current.value = +amount.current.value - 1;
+    props.amountSetter(+amount.current.value);
+  };
+
+  const increaseMenuAmount = () => {
+    amount.current.value = +amount.current.value + 1;
+    props.amountSetter(+amount.current.value);
+  };
+
+  const handleMenuAmountChange = (eventValue) => {
+    amount.current.value = eventValue;
+    props.amountSetter(+amount.current.value);
+  };
+
+  const handleMinusClick = () => {
+    if (props.isCart) {
+      handleCartAmountChange(newArr[props.index].amount - 1);
+    } else {
+      decreaseMenuAmount();
     }
   };
 
   const handleInputChange = (event) => {
     if (props.isCart) {
-      updateCartAmount(+event.target.value);
+      handleCartAmountChange(+event.target.value);
     } else {
-      amount.current.value = +event.target.value;
-      props.amountSetter(+amount.current.value);
-    }
-  };
-
-  const handleMinusClick = () => {
-    if (props.isCart) {
-      updateCartAmount(newArr[props.index].amount - 1);
-    } else {
-      amount.current.value = +amount.current.value - 1;
-      props.amountSetter(+amount.current.value);
+      handleMenuAmountChange(+event.target.value);
     }
   };
 
   const handlePlusClick = () => {
     if (props.isCart) {
-      updateCartAmount(newArr[props.index].amount + 1);
+      handleCartAmountChange(newArr[props.index].amount + 1);
     } else {
-      amount.current.value = +amount.current.value + 1;
-      props.amountSetter(+amount.current.value);
+      increaseMenuAmount();
     }
   };
 
