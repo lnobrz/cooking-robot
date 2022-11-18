@@ -7,22 +7,16 @@ const DeliveryProcess = () => {
 
   const fetchSteps = useCallback(async () => {
     const response = await fetch(
-      "https://cooking-robot-f1d46-default-rtdb.firebaseio.com/deliveryProcess.json"
-    );
-    const data = await response.json();
-    for (const key in data) {
-      setSteps(data[key]);
-    }
-  }, []);
-
-  useEffect(() => {
-    fetchSteps();
-  }, [fetchSteps]);
+    "https://cooking-robot-f1d46-default-rtdb.firebaseio.com/deliveryProcess.json"
+  );
 
   return (
     <div className="flex-col justify-center bg-softWhite relative pb-24">
       <Statistics />
-      <BigTitle title="Delivery Process" additionalClasses="mt-48" />
+      <BigTitle
+        title="Delivery Process"
+        additionalClasses="mt-48 text-center"
+      />
       <ul className="flex flex-row justify-around mt-7 mx-16">
         {steps.map((step) => (
           <li

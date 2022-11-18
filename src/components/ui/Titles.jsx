@@ -10,9 +10,7 @@ export const DisplayTitle = (props) => {
 
 export const BigTitle = (props) => {
   return (
-    <h2
-      className={`${props.additionalClasses} font-display text-3xl text-center`}
-    >
+    <h2 className={`${props.additionalClasses} font-display text-3xl`}>
       {props.title}
     </h2>
   );
