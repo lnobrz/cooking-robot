@@ -2,11 +2,11 @@ import { useState } from "react";
 import MenuItem from "./MenuItem";
 
 const MenuItems = (props) => {
-  const [isMenuFullyOpen, setIsMenuFullyOpen] = useState(false);
+  const [menuFullyOpen, setMenuFullyOpen] = useState(false);
   const container = document.getElementById("menuItemsContainer");
 
-  const handleClick = () => {
-    setIsMenuFullyOpen((previousValue) => !previousValue);
+  const menuFullyOpenToggle = () => {
+    setMenuFullyOpen((previousValue) => !previousValue);
     container.classList.toggle("max-h-534");
   };
 
@@ -22,17 +22,17 @@ const MenuItems = (props) => {
       </ul>
       <button
         className="w-52 h-16 rounded-lg flex justify-center items-center bg-brightRed font-text font-black text-white mt-10 mb-16"
-        onClick={handleClick}
+        onClick={menuFullyOpenToggle}
       >
-        <p className="mr-1">{isMenuFullyOpen ? "view less" : "view more"}</p>
+        <p className="mr-1">{menuFullyOpen ? "view less" : "view more"}</p>
         <img
           src={
-            isMenuFullyOpen
+            menuFullyOpen
               ? "/assets/icons/arrow-up.svg"
               : "/assets/icons/arrow-down.svg"
           }
           alt={
-            isMenuFullyOpen
+            menuFullyOpen
               ? "arrow poiting up above"
               : "arrow poiting down bellow"
           }

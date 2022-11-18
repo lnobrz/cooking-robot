@@ -4,10 +4,10 @@ import { SmallTitle } from "./ui/Titles";
 
 const CartButton = (props) => {
   const globalContext = useContext(GlobalContext);
-  const amountArray = globalContext.cart.map((item) => item.amount);
+  const amounts = globalContext.cart.map((item) => item.amount);
   const totalAmount =
-    amountArray.length > 0
-      ? amountArray.reduce(function (accumulator, curValue) {
+    amounts.length > 0
+      ? amounts.reduce(function (accumulator, curValue) {
           return +accumulator + +curValue;
         })
       : 0;
@@ -20,10 +20,7 @@ const CartButton = (props) => {
         className="h-10"
       />
       <div className="bg-brightRed w-6 h-6 rounded-full absolute -top-6 -right-3">
-        <SmallTitle
-          title={totalAmount.toString()}
-          additionalClasses="text-softWhite"
-        />
+        <SmallTitle title={totalAmount} additionalClasses="text-softWhite" />
       </div>
     </button>
   );

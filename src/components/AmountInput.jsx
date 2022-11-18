@@ -35,7 +35,7 @@ const AmountInput = (props) => {
     globalContext.setCart(updatedCart);
   };
 
-  const handleCartAmountChange = (eventValue) => {
+  const handleCartInputChange = (eventValue) => {
     if (eventValue > 0) {
       updateCartAmount(eventValue);
     } else {
@@ -53,14 +53,14 @@ const AmountInput = (props) => {
     props.amountSetter(+amount.current.value);
   };
 
-  const handleMenuAmountChange = (eventValue) => {
+  const handleMenuInputChange = (eventValue) => {
     amount.current.value = eventValue;
     props.amountSetter(+amount.current.value);
   };
 
   const handleMinusClick = () => {
     if (props.isCart) {
-      handleCartAmountChange(updatedCart[props.index].amount - 1);
+      handleCartInputChange(updatedCart[props.index].amount - 1);
     } else {
       decreaseMenuAmount();
     }
@@ -68,15 +68,15 @@ const AmountInput = (props) => {
 
   const handleInputChange = (event) => {
     if (props.isCart) {
-      handleCartAmountChange(+event.target.value);
+      handleCartInputChange(+event.target.value);
     } else {
-      handleMenuAmountChange(+event.target.value);
+      handleMenuInputChange(+event.target.value);
     }
   };
 
   const handlePlusClick = () => {
     if (props.isCart) {
-      handleCartAmountChange(updatedCart[props.index].amount + 1);
+      handleCartInputChange(updatedCart[props.index].amount + 1);
     } else {
       increaseMenuAmount();
     }

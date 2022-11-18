@@ -4,17 +4,17 @@ import { useState } from "react";
 import ReactDOM from "react-dom";
 
 const Header = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
-  const handleCartClick = () => {
-    setIsModalOpen((previousValue) => !previousValue);
+  const modalOpenToggle = () => {
+    setModalOpen((previousValue) => !previousValue);
   };
 
   return (
     <>
-      {isModalOpen &&
+      {modalOpen &&
         ReactDOM.createPortal(
-          <CartModal closeBtnFunc={handleCartClick} />,
+          <CartModal closeBtnFunc={modalOpenToggle} />,
           document.getElementById("cartModal")
         )}
       <nav className="h-28 flex flex-row justify-between items-center bg-lightRed">
@@ -23,7 +23,7 @@ const Header = () => {
           alt="cooking robot's logo"
           className="w-20 h-20 ml-16"
         />
-        <CartButton onClick={handleCartClick} />
+        <CartButton onClick={modalOpenToggle} />
       </nav>
     </>
   );

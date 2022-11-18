@@ -21,8 +21,8 @@ const ItemInfo = (props) => {
         <div className="flex flex-row items-center">
           <AmountInput
             additionalClasses="border border-brightRed text-brightRed w-32 h-12 mt-3.5 mr-3.5"
-            name={props.name}
-            price={props.price}
+            name={props.item.name}
+            price={props.item.price}
             isCart={props.isCart}
             index={props.index}
           />

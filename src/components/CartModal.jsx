@@ -8,28 +8,44 @@ import { BigTitle } from "./ui/Titles";
 const CartModal = (props) => {
   const [isOrderFinished, setIsOrderFinished] = useState(false);
   const globalContext = useContext(GlobalContext);
-  const message = JSON.stringify(globalContext.cart);
-  const formatedMessage = message
-    .replaceAll("}", "")
-    .replaceAll("{", "")
-    .replaceAll("[", "")
-    .replaceAll("]", "")
-    .replaceAll('"', "")
-    .replaceAll(",", "%20");
+  let orderMessage;
 
-  const handleClearClick = () => {
-    globalContext.setCart([]);
+  const createOrderMessage = () => {
+    const unformatedMessage = JSON.stringify(globalContext.cart);
+    const formatedMessage = unformatedMessage
+      .replaceAll("}", "")
+      .replaceAll("{", "")
+      .replaceAll("[", "")
+      .replaceAll("]", "")
+      .replaceAll('"', "")
+      .replaceAll(",", "%20")
+      .replaceAll(":", ": ");
+
+    orderMessage = formatedMessage;
   };
 
-  const handleOrderClick = () => {
+  const sendOrderMessage = () => {
     window.open(
-      `https://api.whatsapp.com/send?phone=5585988594439&text=${formatedMessage}`
+      `https://api.whatsapp.com/send?phone=5585988594439&text=${orderMessage}`
     );
+  };
+
+  const resetOrderState = () => {
     setIsOrderFinished(true);
-    globalContext.setCart([]);
     setTimeout(() => {
       setIsOrderFinished(false);
     }, 3000);
+  };
+
+  const clearOrder = () => {
+    globalContext.setCart([]);
+  };
+
+  const finishOrder = () => {
+    createOrderMessage();
+    sendOrderMessage();
+    resetOrderState();
+    clearOrder();
   };
 
   return (
@@ -45,11 +61,8 @@ const CartModal = (props) => {
           {globalContext.cart.length > 0 ? (
             globalContext.cart.map((cartItem, index) => (
               <ItemInfo
-                key={cartItem.id}
                 additionalClasses="col-span-full"
-                id={cartItem.id}
-                name={cartItem.item}
-                price={cartItem.price}
+                item={cartItem}
                 index={index}
                 isCart={true}
               />
@@ -85,12 +98,12 @@ const CartModal = (props) => {
             <>
               <Button
                 text="CLEAR CART"
-                onClick={handleClearClick}
+                onClick={clearOrder}
                 additionalClasses="border border-brightRed text-brightRed w-1/4 h-12"
               />
               <Button
                 text="ORDER"
-                onClick={handleOrderClick}
+                onClick={finishOrder}
                 additionalClasses="w-1/4 h-12 bg-brightRed text-softWhite mr-8"
               />
             </>
