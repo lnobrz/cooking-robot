@@ -10,6 +10,7 @@ module.exports = {
         grey: "#EFEFEF",
         modalBg: "rgba(0,0,0,0.4)",
         brightGreen: "#48bf53",
+        darkerGrey: "#D6D6D6",
       },
       fontFamily: {
         display: ["BalooThambi2Bold"],
