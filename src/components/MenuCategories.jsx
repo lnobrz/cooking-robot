@@ -1,23 +1,11 @@
-import { useEffect } from "react";
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 import { SmallTitle } from "./ui/Titles";
+import useFetch from "../hooks/use-fetch";
 
 const MenuCategories = (props) => {
-  const [categories, setCategories] = useState([]);
-
-  const fetchCategories = useCallback(async () => {
-    const response = await fetch(
-      "https://cooking-robot-f1d46-default-rtdb.firebaseio.com/menuCategories.json"
-    );
-    const data = await response.json();
-    for (const key in data) {
-      setCategories(data[key]);
-    }
-  }, []);
-
-  useEffect(() => {
-    fetchCategories();
-  }, [fetchCategories]);
+  const categories = useFetch(
+    "https://cooking-robot-f1d46-default-rtdb.firebaseio.com/menuCategories.json"
+  );
 
   const filterItems = useCallback(
     (event) => {
@@ -29,17 +17,13 @@ const MenuCategories = (props) => {
     [props]
   );
 
-  const handleClick = (event) => {
-    filterItems(event);
-  };
-
   return (
     <ul className="flex flex-row justify-center items-center">
       {categories.map((category) => (
         <li
           className="flex flex-col justify-center items-center p-1.5 mt-2.5 mx-1 hover:bg-brightRed hover:rounded-lg hover:text-white focus:text-whitebg-brightRed focus:bg-brightRed focus:rounded-lg focus:text-white"
           key={category.name}
-          onClick={handleClick}
+          onClick={filterItems}
         >
           <button id={category.name}>
             <img

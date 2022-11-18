@@ -1,12 +1,9 @@
-import { useEffect, useState, useCallback } from "react";
 import Statistics from "./Statistics";
 import { BigTitle, SmallTitle } from "./ui/Titles";
+import useFetch from "../hooks/use-fetch";
 
 const DeliveryProcess = () => {
-  const [steps, setSteps] = useState([]);
-
-  const fetchSteps = useCallback(async () => {
-    const response = await fetch(
+  const steps = useFetch(
     "https://cooking-robot-f1d46-default-rtdb.firebaseio.com/deliveryProcess.json"
   );
 
