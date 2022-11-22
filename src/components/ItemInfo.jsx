@@ -1,7 +1,7 @@
 import ItemText from "./ItemText";
 import AmountInput from "./AmountInput";
 import Decoration from "./ui/Decoration";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { GlobalContext } from "../storage/global";
 
 const ItemInfo = (props) => {
@@ -9,15 +9,19 @@ const ItemInfo = (props) => {
 
   const handleClick = () => {
     const filteredArray = globalContext.cart.filter(
-      (item) => item.id !== props.id
+      (item) => item.id !== props.item.id
     );
     globalContext.setCart(filteredArray);
   };
 
+  useEffect(() => {
+    localStorage.setItem("userCart", JSON.stringify(globalContext.cart))
+  }, [globalContext.cart])
+
   return (
     <div className={`${props.additionalClasses} flex flex-col`}>
-      <div className="flex flex-row justify-between">
-        <ItemText name={props.name} price={props.price} />
+      <div className="flex flex-col items-start sm:flex-row sm:justify-between">
+        <ItemText name={props.item.item} price={props.item.price} />
         <div className="flex flex-row items-center">
           <AmountInput
             additionalClasses="border border-brightRed text-brightRed w-32 h-12 mt-3.5 mr-3.5"
