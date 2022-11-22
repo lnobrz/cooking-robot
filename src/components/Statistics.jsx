@@ -28,7 +28,7 @@ const Statistics = () => {
   );
 
   return (
-    <ul className="w-11/12 md:w-9/12 bg-softWhite flex flex-col justify-center md:justify-evenly items-center rounded-lg shadow-lg relative -top-24 py-14 z-10 m-auto left-0 right-0  md:flex-row">
+    <ul className="w-11/12 md:w-9/12 bg-softWhite flex flex-col justify-center md:justify-evenly items-center rounded-lg shadow-lg relative -top-28 py-14 z-10 m-auto left-0 right-0  md:flex-row">
       {statisticsData.map((statistic) => (
         <li key={statistic.key}>
           <div className="flex flex-row justify-start items-start md:items-center md:gap-2">
