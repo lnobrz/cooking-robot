@@ -13,7 +13,7 @@ const CartButton = (props) => {
       : 0;
 
   return (
-    <button onClick={props.onClick} className="fixed flex items-center justify-center w-20 h-20 mr-16 rounded right-0 bottom-10 bg-lightRed z-50">
+    <button onClick={props.onClick} className="border-2 border-black		fixed flex items-center justify-center w-20 h-20 mr-16 rounded -right-10 bottom-10 bg-lightRed z-50">
       <img
         src="./assets/icons/cart-icon.svg"
         alt="shopping cart icon"
