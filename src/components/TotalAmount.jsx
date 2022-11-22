@@ -18,7 +18,7 @@ const TotalAmount = (props) => {
 
   return (
     <div
-      className={`${props.additionalClasses} flex flex-row justify-between items-center`}
+      className={`${props.additionalClasses} flex flex-col sm:flex-row sm:justify-between sm:items-center items-start`}
     >
       <BigTitle title="Total Amount: " />
       <BigTitle title={`$${roundedPrice}`} />

@@ -49,8 +49,8 @@ const CartModal = (props) => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center fixed	z-20 top-0 left-0 w-full h-full bg-modalBg">
-      <div className="w-3/4 h-565 grid grid-cols-12 rounded-lg bg-softWhite py-8 px-8">
+    <div className="flex flex-col text-center items-center justify-center fixed	z-20 top-0 left-0 w-full h-full bg-modalBg">
+      <div className="w-10/12 md:w-8/12 lg:w-6/12 h-565 grid grid-cols-12 rounded-lg bg-softWhite py-8 px-8">
         <button
           onClick={props.closeBtnFunc}
           className="border border-brightRed flex flex-col justify-center items-center rounded-sm h-6 w-6 mb-4"
@@ -71,9 +71,8 @@ const CartModal = (props) => {
             <>
               <BigTitle
                 title={isOrderFinished ? "Order finished!" : "Empty cart"}
-                additionalClasses={`col-span-full row-start-1 ${
-                  isOrderFinished ? "text-brightGreen" : "text-brightRed"
-                }`}
+                additionalClasses={`col-span-full row-start-1 ${isOrderFinished ? "text-brightGreen" : "text-brightRed"
+                  }`}
               />
               <img
                 src={
@@ -89,22 +88,21 @@ const CartModal = (props) => {
             </>
           )}
         </div>
-
         {globalContext.cart.length > 0 && (
           <TotalAmount additionalClasses="col-span-full my-8 ml-8 mr-8" />
         )}
-        <div className="col-start-6	col-end-13 flex flex-row align-self-end justify-end items-end gap-x-3.5">
+        <div className="col-start-1 col-end-12 xsm:col-start-1 xsm:col-end-8 sm:col-start-6	sm:col-end-13 flex flex-row align-self-end justify-start sm:justify-end items-end gap-x-3.5">
           {globalContext.cart.length > 0 && (
             <>
               <Button
                 text="CLEAR CART"
                 onClick={clearOrder}
-                additionalClasses="border border-brightRed text-brightRed w-1/4 h-12"
+                additionalClasses="border border-brightRed text-brightRed ml-6 sm:ml-0 w-6/12 xsm:w-4/12 sm:w-1/4 h-12 p-8"
               />
               <Button
                 text="ORDER"
                 onClick={finishOrder}
-                additionalClasses="w-1/4 h-12 bg-brightRed text-softWhite mr-8"
+                additionalClasses="w-6/12 xsm:w-4/12 sm:w-1/4 h-12 bg-brightRed text-softWhite mr-8 p-8"
               />
             </>
           )}

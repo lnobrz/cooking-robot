@@ -23,6 +23,10 @@ module.exports = {
         5: "5%",
         50: "50%",
       },
+      screens: {
+        "xsm": "400px",
+        "3xl": "1808px",
+      }
     },
   },
   plugins: [],

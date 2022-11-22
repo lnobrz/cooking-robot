@@ -1,7 +1,7 @@
 export const DisplayTitle = (props) => {
   return (
     <h1
-      className={`${props.additionalClasses} text-6xl font-display font-black mx-16`}
+      className={`${props.additionalClasses} text-4xl md:text-6xl font-display font-black md:mx-16`}
     >
       {props.title}
     </h1>

@@ -3,14 +3,14 @@ import { BigTitle } from "./ui/Titles";
 
 const PopularItems = () => {
   return (
-    <>
+    <div className="flex flex-col">
       <BigTitle
-        additionalClasses="my-12 text-center"
+        additionalClasses="mt-16 text-center"
         title="Find the nearest Cooking Robot"
       />
-      <div className="flex flex-row justify-between items-center mx-12">
-        <img src="/assets/images/map-illustration.png" alt="map illustration" />
-        <div className="w-3/6">
+      <div className="flex flex-row md:flex-nowrap md:justify-between items-center m-16">
+        <img src="/assets/images/map-illustration.png" alt="map illustration" className="hidden lg:block" />
+        <div className="w-full md:w-full lg:w-3/6">
           <AddressCard
             unityName="Cooking Robot Fortaleza"
             addressLine1="Honeymoon Avenue, 2089"
@@ -40,7 +40,7 @@ const PopularItems = () => {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
