@@ -9,12 +9,12 @@ const Menu = () => {
     "https://cooking-robot-f1d46-default-rtdb.firebaseio.com/menuItems.json"
   );
   const [filteredItems, setFilteredItems] = useState(
-    items.filter((item) => item.category === "burgers")
+    Array.isArray(items) ? items.filter((item) => item.category === "burgers") : items
   );
 
   return (
-    <div className="flex flex-col justify-center items-center bg-lightRed pt-14 pb-28">
-      <BigTitle title="Menu" marginTop="mt-12" />
+    <div className="flex flex-col items-center bg-lightRed py-14">
+      <BigTitle title="Menu" marginTop="mt-12" additionalClasses="text-center" />
       <MenuCategories items={items} setFilteredItems={setFilteredItems} />
       {filteredItems.length > 0 && <MenuItems items={filteredItems} />}
     </div>

@@ -28,16 +28,16 @@ const Statistics = () => {
   );
 
   return (
-    <ul className="w-9/12 bg-softWhite flex flex-row justify-evenly items-center rounded-lg shadow-lg absolute -top-72 py-14 z-10 m-auto left-0 right-0">
+    <ul className="w-11/12 md:w-9/12 bg-softWhite flex flex-col justify-center md:justify-evenly items-center rounded-lg shadow-lg relative -top-24 py-14 z-10 m-auto left-0 right-0  md:flex-row">
       {statisticsData.map((statistic) => (
         <li key={statistic.key}>
-          <div className="flex flex-row justify-center items-center">
-            <img src={statistic.elipseIcon} alt={statistic.iconDescription} />
-            <p className="font-display text-2xl text-center ml-2.5">
+          <div className="flex flex-row justify-start items-start md:items-center md:gap-2">
+            <img src={statistic.elipseIcon} alt={statistic.iconDescription} className="mx-4 my-1.5 md:mt-0 md:mr-1" />
+            <p className="font-display text-2xl text-start md:text-center leading-none">
               {statistic.name.toUpperCase()}
             </p>
           </div>
-          <p className="font-display text-6xl text-center mt-2.5">
+          <p className="font-display text-5xl md:text-6xl text-center mt-2.5 mb-6 md:mb-0">
             {statistic.amount.toUpperCase()}
           </p>
         </li>
