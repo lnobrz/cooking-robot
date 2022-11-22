@@ -34,7 +34,7 @@ const ItemInfo = (props) => {
             className="flex flex-col justify-center items-center bg-brightRed rounded-sm h-12 w-12 mt-3.5"
             onClick={handleClick}
           >
-            <img src="/assets/icons/exclude-icon.svg" alt="close icon" />
+            <img src="./assets/icons/exclude-icon.svg" alt="close icon" />
           </button>
         </div>
       </div>

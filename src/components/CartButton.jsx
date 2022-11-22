@@ -8,14 +8,14 @@ const CartButton = (props) => {
   const totalAmount =
     amounts.length > 0
       ? amounts.reduce(function (accumulator, curValue) {
-          return +accumulator + +curValue;
-        })
+        return +accumulator + +curValue;
+      })
       : 0;
 
   return (
     <button onClick={props.onClick} className="relative w-10 h-10 mr-16">
       <img
-        src="/assets/icons/cart-icon.svg"
+        src="./assets/icons/cart-icon.svg"
         alt="shopping cart icon"
         className="h-10"
       />

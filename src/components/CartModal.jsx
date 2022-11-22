@@ -55,7 +55,7 @@ const CartModal = (props) => {
           onClick={props.closeBtnFunc}
           className="border border-brightRed flex flex-col justify-center items-center rounded-sm h-6 w-6 mb-4"
         >
-          <img src="/assets/icons/close-icon.svg" alt="close icon" />
+          <img src="./assets/icons/close-icon.svg" alt="close icon" />
         </button>
         <div className="flex flex-col col-span-full px-8  overflow-y-auto">
           {globalContext.cart.length > 0 ? (
@@ -77,8 +77,8 @@ const CartModal = (props) => {
               <img
                 src={
                   isOrderFinished
-                    ? "/assets/images/order-finished.png"
-                    : "/assets/icons/empty-cart-icon.svg"
+                    ? "./assets/images/order-finished.png"
+                    : "./assets/icons/empty-cart-icon.svg"
                 }
                 alt={
                   isOrderFinished ? "cart with a checked symbol" : "empty cart"

@@ -50,7 +50,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="w-4/12 sm:w-6/12 md:w-6/12 lg:w-4/12 xl:w-3/12">
-          <img src="/assets/images/logo.png" alt="cooking robot logo" />
+          <img src="./assets/images/logo.png" alt="cooking robot logo" />
         </div>
       </div>
     </div>

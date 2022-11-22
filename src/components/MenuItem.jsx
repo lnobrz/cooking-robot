@@ -75,7 +75,7 @@ const MenuItem = (props) => {
         className="bg-brightRed p-1 h-7 w-full rounded-sm col-start-11 col-end-13 row-start-6 row-end-6 flex justify-center items-center"
         onClick={(event) => handleCartBtnClick(props.item)}
       >
-        <img src="/assets/icons/cart-icon-2.svg" alt="cart icon" />
+        <img src="./assets/icons/cart-icon-2.svg" alt="cart icon" />
       </button>
     </li>
   );

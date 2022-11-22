@@ -37,8 +37,8 @@ const MenuItems = (props) => {
         <img
           src={
             menuFullyOpen
-              ? "/assets/icons/arrow-up.svg"
-              : "/assets/icons/arrow-down.svg"
+              ? "./assets/icons/arrow-up.svg"
+              : "./assets/icons/arrow-down.svg"
           }
           alt={
             menuFullyOpen

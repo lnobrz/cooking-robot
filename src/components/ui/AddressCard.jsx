@@ -13,8 +13,8 @@ const AddressCard = (props) => {
             <img
               src={
                 props.elipseColor === "green"
-                  ? "/assets/icons/green-elipse.svg"
-                  : "/assets/icons/red-elipse.svg"
+                  ? "./assets/icons/green-elipse.svg"
+                  : "./assets/icons/red-elipse.svg"
               }
               alt={
                 props.elipseColor === "green" ? "green elipse" : "red elipse"

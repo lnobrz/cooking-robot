@@ -19,7 +19,7 @@ const Header = () => {
         )}
       <nav className="h-28 flex flex-row justify-between items-center bg-lightRed py-16">
         <img
-          src="/assets/images/logo.png"
+          src="./assets/images/logo.png"
           alt="cooking robot's logo"
           className="w-20 h-20 ml-16"
         />
