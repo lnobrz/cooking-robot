@@ -13,8 +13,8 @@ const Menu = () => {
   );
 
   return (
-    <div className="flex flex-col items-center bg-lightRed py-14">
-      <BigTitle title="Menu" marginTop="mt-12" additionalClasses="text-center" />
+    <div className="flex flex-col items-center bg-lightRed py-14" id="menu">
+      <BigTitle title="What do you want to eat today?" marginTop="mt-12" additionalClasses="text-center" />
       <MenuCategories items={items} setFilteredItems={setFilteredItems} />
       {filteredItems.length > 0 && <MenuItems items={filteredItems} />}
     </div>
