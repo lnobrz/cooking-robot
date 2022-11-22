@@ -8,7 +8,12 @@ const Header = () => {
 
   const modalOpenToggle = () => {
     setModalOpen((previousValue) => !previousValue);
+    updateBodyOverflow(modalOpen);
   };
+
+  const updateBodyOverflow = (modalOpen) => {
+    modalOpen ? document.body.style.overflow = 'auto' : document.body.style.overflow = 'hidden'
+  }
 
   return (
     <>
