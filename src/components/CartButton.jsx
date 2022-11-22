@@ -19,7 +19,7 @@ const CartButton = (props) => {
         alt="shopping cart icon"
         className="h-10"
       />
-      <div className="bg-brightRed w-6 h-6 rounded-full absolute -top-6 -right-3">
+      <div className="bg-brightRed w-6 h-6 rounded-full absolute top-0 -right-0">
         <SmallTitle title={totalAmount} additionalClasses="text-softWhite" />
       </div>
     </button>
