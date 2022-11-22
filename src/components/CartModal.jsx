@@ -50,7 +50,7 @@ const CartModal = (props) => {
 
   return (
     <div className="flex flex-col text-center items-center justify-center fixed	z-20 top-0 left-0 w-full h-full bg-modalBg">
-      <div className="w-10/12 md:w-8/12 lg:w-6/12 h-565 grid grid-cols-12 rounded-lg bg-softWhite py-8 px-8">
+      <div className="w-11/12 md:w-8/12 lg:w-6/12 h-565 grid grid-cols-12 rounded-lg bg-softWhite py-8 px-8">
         <button
           onClick={props.closeBtnFunc}
           className="border border-brightRed flex flex-col justify-center items-center rounded-sm h-6 w-6 mb-4"
