@@ -6,21 +6,30 @@ const AmountInput = (props) => {
   let updatedCart = [...globalContext.cart];
   const amount = useRef(0);
 
-  const resetAmount = useCallback(() => {
-    amount.current.value = 0;
-    props.resetSetter(false);
-  }, [props]);
-
   const updateLocalStorageCart = useCallback(() => {
     localStorage.setItem("userCart", JSON.stringify(globalContext.cart));
   }, [globalContext.cart]);
 
-  useEffect(() => {
-    if (props.reset === true) {
-      resetAmount();
+  const handleInputChange = (event) => {
+    if (props.isCart) {
+      handleCartInputChange(+event.target.value);
+    } else {
+      handleMenuInputChange(+event.target.value);
     }
-    updateLocalStorageCart();
-  }, [props.reset, resetAmount, updateLocalStorageCart]);
+  };
+
+  const handleCartInputChange = (eventValue) => {
+    if (eventValue > 0) {
+      updateCartAmount(eventValue);
+    } else {
+      excludeCartItem();
+    }
+  };
+
+  const handleMenuInputChange = (eventValue) => {
+    amount.current.value = eventValue;
+    props.amountSetter(+amount.current.value);
+  };
 
   const updateCartAmount = (eventValue) => {
     updatedCart[props.index] = {
@@ -35,11 +44,25 @@ const AmountInput = (props) => {
     globalContext.setCart(updatedCart);
   };
 
-  const handleCartInputChange = (eventValue) => {
-    if (eventValue > 0) {
-      updateCartAmount(eventValue);
+  const resetAmount = useCallback(() => {
+    amount.current.value = 0;
+    props.resetSetter(false);
+  }, [props]);
+
+
+  const handleMinusClick = () => {
+    if (props.isCart) {
+      handleCartInputChange(updatedCart[props.index].amount - 1);
     } else {
-      excludeCartItem();
+      decreaseMenuAmount();
+    }
+  };
+
+  const handlePlusClick = () => {
+    if (props.isCart) {
+      handleCartInputChange(updatedCart[props.index].amount + 1);
+    } else {
+      increaseMenuAmount();
     }
   };
 
@@ -53,34 +76,12 @@ const AmountInput = (props) => {
     props.amountSetter(+amount.current.value);
   };
 
-  const handleMenuInputChange = (eventValue) => {
-    amount.current.value = eventValue;
-    props.amountSetter(+amount.current.value);
-  };
-
-  const handleMinusClick = () => {
-    if (props.isCart) {
-      handleCartInputChange(updatedCart[props.index].amount - 1);
-    } else {
-      decreaseMenuAmount();
+  useEffect(() => {
+    if (props.reset === true) {
+      resetAmount();
     }
-  };
-
-  const handleInputChange = (event) => {
-    if (props.isCart) {
-      handleCartInputChange(+event.target.value);
-    } else {
-      handleMenuInputChange(+event.target.value);
-    }
-  };
-
-  const handlePlusClick = () => {
-    if (props.isCart) {
-      handleCartInputChange(updatedCart[props.index].amount + 1);
-    } else {
-      increaseMenuAmount();
-    }
-  };
+    updateLocalStorageCart();
+  }, [props.reset, resetAmount, updateLocalStorageCart]);
 
   return (
     <div
