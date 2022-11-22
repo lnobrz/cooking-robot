@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/cooking-robot/static/css/main.90a710c5.css",
-    "main.js": "/cooking-robot/static/js/main.c6347ace.js",
+    "main.css": "/cooking-robot/static/css/main.d55d00a8.css",
+    "main.js": "/cooking-robot/static/js/main.2296b07d.js",
     "static/media/BalooThambi2-Bold.ttf": "/cooking-robot/static/media/BalooThambi2-Bold.918678e846757a8b0d30.ttf",
     "static/media/ArialRoundedMT-Bold.ttf": "/cooking-robot/static/media/ArialRoundedMT-Bold.78ccc3bbe2236b324bfb.ttf",
     "index.html": "/cooking-robot/index.html",
-    "main.90a710c5.css.map": "/cooking-robot/static/css/main.90a710c5.css.map",
-    "main.c6347ace.js.map": "/cooking-robot/static/js/main.c6347ace.js.map"
+    "main.d55d00a8.css.map": "/cooking-robot/static/css/main.d55d00a8.css.map",
+    "main.2296b07d.js.map": "/cooking-robot/static/js/main.2296b07d.js.map"
   },
   "entrypoints": [
-    "static/css/main.90a710c5.css",
-    "static/js/main.c6347ace.js"
+    "static/css/main.d55d00a8.css",
+    "static/js/main.2296b07d.js"
   ]
 }
