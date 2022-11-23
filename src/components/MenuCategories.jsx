@@ -10,9 +10,9 @@ const MenuCategories = (props) => {
 
   useEffect(() => {
     if (categories) {
-      setLoading(false);
+      setLoading(false)
     }
-  }, [categories]);
+  }, [categories])
 
   const filterItems = useCallback(
     (event) => {
@@ -22,52 +22,53 @@ const MenuCategories = (props) => {
         );
         props.setFilteredItems(filterResult);
       } else {
-        props.setFilteredItems(props.items);
+        props.setFilteredItems(props.items)
       }
     },
     [props]
   );
+  useEffect(() => {
+
+  }, [])
 
   const changeButtonBg = (event) => {
-    event.currentTarget.parentNode.childNodes.classList.remove("bg-brightRed");
-    event.currentTarget.classList.toggle("bg-brightRed");
-  };
+    const categoriesNodes = event.currentTarget.parentNode.childNodes
+    for (const node of categoriesNodes) {
+      node.classList.remove("bg-brightRed")
+    }
+
+    event.currentTarget.classList.add("bg-brightRed")
+  }
 
   const handleClick = (event) => {
-    filterItems(event);
-    changeButtonBg(event);
-  };
+    changeButtonBg(event)
+    filterItems(event)
+  }
 
   return (
     <ul className="w-full flex flex-row lg:justify-center items-center flex-nowrap overflow-x-auto mx-5 justify-start">
-      {loading ? (
-        <SmallTitle title="loading...." additionalClasses="mt-9" />
-      ) : Array.isArray(categories) ? (
-        categories.map((category) => (
-          <li
-            className="p-1.5 mt-2.5 min-w-fit mx-1 hover:bg-brightRed hover:rounded-lg hover:text-white focus:text-whitebg-brightRed focus:bg-brightRed focus:rounded-lg focus:text-white"
-            key={category.name}
-            onClick={handleClick}
-          >
-            <button id={category.name}>
-              <img
-                src={category.image}
-                alt={category.imageDescription}
-                className="h-28"
-                id={category.name}
-              />
-              <SmallTitle
-                title={
-                  category.name.charAt(0).toUpperCase() + category.name.slice(1)
-                }
-                id={category.name}
-              />
-            </button>
-          </li>
-        ))
-      ) : (
-        <BigTitle title={categories} additionalClasses="text-brightRed mt-9" />
-      )}
+      {loading ? <SmallTitle title="loading...." additionalClasses="mt-9" /> : (Array.isArray(categories) ? categories.map((category) => (
+        <li
+          className="p-1.5 mt-2.5 min-w-fit mx-1 hover:bg-brightRed hover:rounded-lg hover:text-white focus:bg-brightRed focus:rounded-lg focus:text-white"
+          key={category.name}
+          onClick={handleClick}
+        >
+          <button id={category.name}>
+            <img
+              src={category.image}
+              alt={category.imageDescription}
+              className="h-28"
+              id={category.name}
+            />
+            <SmallTitle
+              title={
+                category.name.charAt(0).toUpperCase() + category.name.slice(1)
+              }
+              id={category.name}
+            />
+          </button>
+        </li>
+      )) : <BigTitle title={categories} additionalClasses="text-brightRed mt-9" />)}
     </ul>
   );
 };
