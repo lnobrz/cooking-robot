@@ -34,10 +34,10 @@ const MenuCategories = (props) => {
   const changeButtonBg = (event) => {
     const categoriesNodes = event.currentTarget.parentNode.childNodes
     for (const node of categoriesNodes) {
-      node.classList.remove("bg-brightRed")
+      node.classList.remove("bg-brightRed", "text-white", "rounded-lg")
     }
 
-    event.currentTarget.classList.add("bg-brightRed")
+    event.currentTarget.classList.add("bg-brightRed", "text-white", "rounded-lg")
   }
 
   const handleClick = (event) => {
